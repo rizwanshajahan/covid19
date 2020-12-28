@@ -1,0 +1,35 @@
+<% include ./partials/header %>
+
+<div class="card">
+    <table>
+        <tr>   
+            <th colspan="2">
+                
+                <% var total = 0; data.districtData.forEach(function(num){ %>
+                    <%  total = total + num.confirmed; %>
+                    <% });  %>
+                        
+                <h2 class="main-title"><%= data.state %></h2>
+                <h2 class="number-red"><%= total %></h2>
+
+            </th>
+        </tr>
+
+        <% data.districtData.forEach(function(eachdistrict){ %>
+        
+        <tr>
+            <td><h3><span class="title"><%= eachdistrict.district %></span></h3></td>
+        </tr>
+        <tr>
+            <% if(eachdistrict.confirmed == ""){ %>
+                <%  eachdistrict.confirmed = "0"; %>
+            <% } %>
+            <td class="number"><%= eachdistrict.confirmed %></td>
+        </tr>
+
+        <% }); %>
+        
+    </table>
+</div> 
+
+<% include ./partials/footer %>

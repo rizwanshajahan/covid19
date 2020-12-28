@@ -1,0 +1,60 @@
+<% include ./partials/header %>
+
+    <style>
+        h2{ 
+            padding: 1%;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        table{
+            text-align: center;
+        }
+        td {
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        th{
+            padding-bottom: 2%;
+        }
+
+        tr:nth-child(even) > td:nth-child(1) {
+            background: #b0b5af59;
+        }
+
+        tr:nth-child(even) > td:nth-child(2) {
+            background: #0192ff33;
+        }
+
+        tr:nth-child(even) > td:nth-child(3) {
+            background: #27ff0033;
+        }
+
+        tr:nth-child(even) > td:nth-child(4) {
+            background: #ff000033;
+        }
+
+
+    </style>
+    <body>
+        <h2>Total confirmed cases by Date </h2>
+        <h2>India</h2>
+        <div class="padding">
+        <table>
+            <tr>
+                <th class="">Date</th>
+                <th class="">Confirmed</th>
+                <th class="">Recovered</th>
+                <th class="">Dead</th>
+            </tr>
+        <% for(var i=data.length - 1; i>=0; i--){ %>
+          <tr>
+                <td class="color-white"><%= data[i].date %></td>
+                <td class="color-blue"><%= data[i].totalconfirmed %></td>
+                <td class="color-green"><%= data[i].totalrecovered %></td>
+                <td class="color-red"><%= data[i].totaldeceased %></td>
+            </tr>
+        <% } %>
+        </table>
+        </div>
+<% include ./partials/footer %>

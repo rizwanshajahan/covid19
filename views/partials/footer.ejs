@@ -1,0 +1,21 @@
+
+<div class="footer">
+  <h5>Made with <img src="https://img.icons8.com/cotton/50/000000/like.png"/> by Riz.</h5>
+</div>
+    
+<script>
+  $('.number, .number-red').each(function () {
+  $(this).prop('Counter',0).animate({
+      Counter: $(this).text()
+  }, {
+      duration: 3000,
+      easing: 'swing',
+      step: function (now) {
+          $(this).text(Math.ceil(now));
+      }
+  });
+});
+</script>
+
+</body>
+</html>

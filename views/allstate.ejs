@@ -1,0 +1,46 @@
+<% include ./partials/header %>
+
+<h2 class="">India</h2>
+
+<div class="card">
+    <div class="links-div">
+        <% data.forEach(function(eachstate){ %>
+            <% var total = 0 %>
+            <% eachstate.districtData.forEach(function(num){ %>
+            <% total = total + num.confirmed; %>
+            <% }); %>
+
+            <% if(eachstate.state!="State Unassigned"){ %>
+            <div class="state-link"><a href="/state/<%= eachstate.state %>"> <%= eachstate.state %> : <span style="color: #fd4376;"><%= total %></span> </a></div>
+            <% } %>
+        <% }); %>    
+    </div>
+</div>
+
+<% data.forEach(function(eachstate){ %>
+    <% if(eachstate.state!="State Unassigned"){ %>
+    <div class="card">
+        <table>
+            <tr>
+                <th colspan="2">
+                    <h2 class="main-title"><%= eachstate.state %></h2>
+                </th>
+            </tr>
+            <% eachstate.districtData.forEach(function(eachdistrict){ %>
+            <tr>
+                <td><h3><span class="title"><%= eachdistrict.district %></span></h3></td>
+            </tr>
+            <tr>
+                <% if(eachdistrict.confirmed == ""){ %>
+                    <%  eachdistrict.confirmed = "0"; %>
+                <% } %>
+                <td class="number"><%= eachdistrict.confirmed %></td>
+            </tr>
+    
+            <% }); %>
+        </table>
+    </div> 
+    <% } %>
+<% }); %>
+
+<% include ./partials/footer %>

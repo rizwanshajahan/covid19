@@ -1,0 +1,61 @@
+<% include ./partials/header %>
+
+        <% data.forEach(function(loopdata){ %>
+         
+          <div class="card">
+            <table>
+                <tr>
+                  <th colspan="2">
+                      <h2 class="main-title"><%= loopdata.country %></h2>
+                  </th>
+                </tr>
+                <tr>
+                  <td><h3><span class="title">total cases</span></h3></td>
+                </tr>
+                <tr>
+                    <td class="number-red"><%= loopdata.cases %></td>
+                </tr>
+                <tr>
+                  <td><h3><span class="title">new cases</span</h3></td>
+                </tr>
+                <tr>
+                    <% if(loopdata.todayCases == ""){ %>
+                      <%  loopdata.todayCases = "0"; %>
+                    <% } %>
+                    <td class="number"><%= loopdata.todayCases %></td>
+                </tr>
+                <tr>
+                  <td><h3><span class="title">active cases</span></td>
+                </tr>
+                <tr>  
+                    <td class="number"><%= loopdata.active %></td>
+                </tr>
+                <tr>
+                  <td><h3><span class="title">total death</span></h3></td>
+                </tr>
+                <tr>
+                    <td class="number"><%= loopdata.deaths %></td>
+                </tr>
+                <tr>
+                  <td><h3><span class="title">new death</span></h3></td>
+                </tr>
+                <tr>
+                    <% if(loopdata.todayDeaths == ""){ %>
+                    <%  loopdata.todayDeaths = "0"; %>
+                    <% } %>
+                    <td class="number"><%= loopdata.todayDeaths %></td>
+                </tr>
+                <tr>
+                  <td><h3><span class="title">total recovered</span></h3></td>
+                </tr>
+                <tr>
+                    <td class="number"><%= loopdata.recovered %></td>
+                </tr>
+            </table>
+        </div> 
+
+        <% }); %>
+
+<% include ./partials/footer %>
+
+  

@@ -1,0 +1,57 @@
+<% include ./partials/header %>
+<div class="card">
+    <table>
+        <tr>
+          <th colspan="2">
+              <h2 class="main-title"><%= data.country %></h2>
+          </th>
+        </tr>
+        <tr>
+          <td><h3><span class="title">total cases</span></h3></td>
+        </tr>
+        <tr>
+            <td class="number-red"><%= data.cases %></td>
+        </tr>
+        <tr>
+          <td><h3><span class="title">new cases</span</h3></td>
+        </tr>
+        <tr>
+            <% if(data.today_cases == ""){ %>
+              <%  data.today_cases = "0"; %>
+            <% } %>
+            <td class="number"><%= data.todayCases %></td>
+        </tr>
+        <tr>
+          <td><h3><span class="title">active cases</span></td>
+        </tr>
+        <tr>  
+            <td class="number"><%= data.active %></td>
+        </tr>
+        <tr>
+          <td><h3><span class="title">total death</span></h3></td>
+        </tr>
+        <tr>
+            <td class="number"><%= data.deaths %></td>
+        </tr>
+        <tr>
+          <td><h3><span class="title">new death</span></h3></td>
+        </tr>
+        <tr>
+            <% if(data.todayDeaths == ""){ %>
+            <%  data.todayDeaths = "0"; %>
+            <% } %>
+            <td class="number"><%= data.todayDeaths %></td>
+        </tr>
+        <tr>
+          <td><h3><span class="title">total recovered</span></h3></td>
+        </tr>
+        <tr>
+            <td class="number"><%= data.recovered %></td>
+        </tr>
+    </table>
+</div> 
+
+<div class="footer"><h5># views </h5></div>
+
+
+<% include ./partials/footer %>
